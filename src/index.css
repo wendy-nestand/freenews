@@ -1,0 +1,20 @@
+#root html body {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  background-color: whiteSmoke;
+}
+
+h1 {
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
