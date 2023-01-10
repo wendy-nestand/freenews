@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.fectchNews();
+    this.fectchNews();
     this.alanBtnInstance = alanBtn({
       key: alanApi_Key,
       onCommand: ({ commandData, articleList }) => {
@@ -60,12 +60,12 @@ class App extends Component {
     });
   }
 
-  // fectchNews = async () => {
-  //   const response = await fetch(API_URL);
-  //   const data = await response.json();
-  //   console.log(data.articles);
-  //   this.setState({ articles: data.articles });
-  // };
+  fectchNews = async () => {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    console.log(data.articles);
+    this.setState({ articles: data.articles });
+  };
 
   render() {
     const { articles } = this.state;

@@ -20,16 +20,18 @@ const NewsCard = ({
   content,
   i,
 }) => {
+  const classes = useStyles();
   return (
-    <Card>
-      <CardActionArea>
+    <Card classes={classes.card}>
+      <CardActionArea href={url} target="_blank">
         <CardMedia
+          className={classes.media}
           image={
             urlToImage ||
             "https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png"
           }
         />
-        <div>
+        <div className={classes.details}>
           <Typography variant="body2" color="textSecondary" component="h2">
             {new Date(publishedAt).toString()}
           </Typography>
@@ -37,7 +39,7 @@ const NewsCard = ({
             {source.name}
           </Typography>
         </div>
-        <Typography gutterBottom variant="h5">
+        <Typography className={classes.title} gutterBottom variant="h5">
           {title}
         </Typography>
         <CardContent>
@@ -46,7 +48,7 @@ const NewsCard = ({
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions classes={classes.cardActions}>
         <Button size="small" color="primary">
           Continue reading
         </Button>
