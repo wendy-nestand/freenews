@@ -11,18 +11,17 @@ import {
 import useStyles from "./styles";
 
 const NewsCard = ({
+  i,
   source,
   title,
   description,
   url,
   urlToImage,
   publishedAt,
-  content,
-  i,
 }) => {
   const classes = useStyles();
   return (
-    <Card classes={classes.card}>
+    <Card className={classes.card}>
       <CardActionArea href={url} target="_blank">
         <CardMedia
           className={classes.media}
@@ -30,10 +29,11 @@ const NewsCard = ({
             urlToImage ||
             "https://www.industry.gov.au/sites/default/files/August%202018/image/news-placeholder-738.png"
           }
+          title={title}
         />
         <div className={classes.details}>
           <Typography variant="body2" color="textSecondary" component="h2">
-            {new Date(publishedAt).toString()}
+            {new Date(publishedAt).toDateString()}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="h2">
             {source.name}
@@ -48,11 +48,11 @@ const NewsCard = ({
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions classes={classes.cardActions}>
-        <Button size="small" color="primary">
+      <CardActions className={classes.cardActions}>
+        <Button size="small" color="primary" href={url}>
           Continue reading
         </Button>
-        <Typography variant="h5" color="textSecondary">
+        <Typography variant="h2" color="textSecondary">
           {i + 1}
         </Typography>
       </CardActions>

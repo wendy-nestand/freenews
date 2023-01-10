@@ -1,12 +1,13 @@
 import React, { useEffect, useState, Component } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "./components/newsCards/NewsCards";
+import SearchBox from "./components/searchBox/SearchBox";
+import NewsCard from "./components/newsCard/NewsCard";
 
 const alanApi_Key =
   "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage";
 const newsApi_key = "2bb55c3d7c5c4ad2b9a2e78c86b89ed6";
-const API_URL =
-  "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=2bb55c3d7c5c4ad2b9a2e78c86b89ed6";
+// const API_URL = `https://newsapi.org/v2/everything?q=${searchNews}&apiKey=2bb55c3d7c5c4ad2b9a2e78c86b89ed6`;
 
 // const App = () => {
 //   const [newsArticles, setNewsArticles] = useState([]);
@@ -43,11 +44,11 @@ class App extends Component {
     super();
     this.state = {
       articles: [],
+      searchNews: "",
     };
   }
 
   componentDidMount() {
-    this.fectchNews();
     this.alanBtnInstance = alanBtn({
       key: alanApi_Key,
       onCommand: ({ commandData, articleList }) => {
@@ -60,19 +61,40 @@ class App extends Component {
     });
   }
 
-  fectchNews = async () => {
-    const response = await fetch(API_URL);
+  handleSubmit = (event) => {
+    event.preventDefault();
+    // perform search here
+    console.log(`Searching for ${this.state.searchNews}`);
+    const datas = this.fetchNews(this.state.searchNews);
+    console.log("type:", typeof Object.values(datas));
+    // this.setState({ articles: datas });
+  };
+
+  handleChange = (event) => {
+    this.setState({ searchNews: event.target.value });
+  };
+
+  fetchNews = async (searchKey) => {
+    const response = await fetch(
+      `https://newsapi.org/v2/everything?q=${searchKey}&apiKey=2bb55c3d7c5c4ad2b9a2e78c86b89ed6`
+    );
     const data = await response.json();
-    console.log(data.articles);
-    this.setState({ articles: data.articles });
+    const articleList = Object.values(data.articles);
+    this.setState({ articles: articleList });
+    return articleList;
   };
 
   render() {
-    const { articles } = this.state;
+    const { articles, searchNews } = this.state;
+
     return (
       <div>
-        <h1> News Application </h1>
-        <NewsCards articles={articles}></NewsCards>
+        <SearchBox
+          searchNews={searchNews}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        ></SearchBox>
+        <NewsCards key={articles.length} articles={articles}></NewsCards>
       </div>
     );
   }

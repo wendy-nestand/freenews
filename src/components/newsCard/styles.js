@@ -4,6 +4,7 @@ export default makeStyles({
   media: {
     height: 250,
   },
+
   border: {
     border: "solid",
   },
