@@ -49,10 +49,10 @@ const NewsCard = ({
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" href={url}>
-          Continue reading
+        <Button className={classes.button} size="small" href={url}>
+          <h4>read</h4>
         </Button>
-        <Typography variant="h2" color="textSecondary">
+        <Typography variant="h5" color="textSecondary" size="small">
           {i + 1}
         </Typography>
       </CardActions>

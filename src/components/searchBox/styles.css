@@ -1,0 +1,22 @@
+.btn-primary {
+  background-color: rgb(11, 139, 218);
+  border-color: black;
+  border-width: 2px;
+}
+
+.btn-primary:hover {
+  background-color: rgb(0, 52, 82, 0.9);
+  border-color: #010408;
+  border-width: 4px;
+}
+
+.btn-self {
+  padding: 0.7rem 2rem;
+}
+
+.txtField {
+  width: auto;
+  border: 0in;
+  border-radius: 8px;
+  border-color: whitesmoke;
+}

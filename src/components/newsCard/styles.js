@@ -15,10 +15,10 @@ export default makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    borderBottom: "10px solid white",
+    borderBottom: "10px solid #0d1117b3",
   },
   activeCard: {
-    borderBottom: "10px solid #22289a",
+    borderBottom: "10px solid #0d1117b3",
   },
   grid: {
     display: "flex",
@@ -35,5 +35,13 @@ export default makeStyles({
     padding: "0 16px 8px 16px",
     display: "flex",
     justifyContent: "space-between",
+  },
+  button: {
+    width: "100px",
+    height: "40px",
+    border: "solid black 2px",
+    borderRadius: "15px",
+    backgroundColor: " #0d1117b3",
+    boxShadow: "0px 0px 10px white",
   },
 });

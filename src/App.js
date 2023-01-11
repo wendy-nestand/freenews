@@ -2,7 +2,7 @@ import React, { useEffect, useState, Component } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "./components/newsCards/NewsCards";
 import SearchBox from "./components/searchBox/SearchBox";
-import NewsCard from "./components/newsCard/NewsCard";
+import "./index.css";
 
 const alanApi_Key =
   "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage";
@@ -50,12 +50,14 @@ class App extends Component {
 
   componentDidMount() {
     this.alanBtnInstance = alanBtn({
-      key: alanApi_Key,
-      onCommand: ({ commandData, articleList }) => {
-        if (commandData.command === "articleList") {
-          // Call the client code that will react to the received command
-          console.log(articleList);
-          this.setState({ articles: articleList });
+      key: "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onCommand: ({ command, articles }) => {
+        console.log(command);
+        if (command === "articles") {
+          //call client code that will react to the received command
+
+          console.log("type :", typeof articles);
+          this.setState({ articles: articles });
         }
       },
     });
@@ -94,6 +96,15 @@ class App extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         ></SearchBox>
+        <section>
+          <div class="container">
+            <h1>
+              Search <span class="sp">News</span>
+              <br />
+              All around the Globe
+            </h1>
+          </div>
+        </section>
         <NewsCards key={articles.length} articles={articles}></NewsCards>
       </div>
     );

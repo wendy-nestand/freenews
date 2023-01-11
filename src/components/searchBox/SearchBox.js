@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import useStyles from "./styles.js";
 import Divider from "@material-ui/core/Divider";
+import "./styles.css";
 
 const SearchBox = ({ searchNews, handleChange, handleSubmit }) => {
   const classes = useStyles();
@@ -18,6 +19,9 @@ const SearchBox = ({ searchNews, handleChange, handleSubmit }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        color: "whitesmoke",
+        marginBottom: 50,
+        textEmphasisColor: "white",
       }}
     >
       <TextField
@@ -31,7 +35,7 @@ const SearchBox = ({ searchNews, handleChange, handleSubmit }) => {
       <Divider className={classes.divider} orientation="vertical" />
 
       <Button
-        className={classes.Button}
+        className={classes.button}
         variant="contained"
         color="primary"
         size="small"
