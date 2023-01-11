@@ -3,8 +3,10 @@ import { makeStyles } from "@material-ui/core";
 const styles = makeStyles({
   root: {
     "& > *": {
-      marginBottom: 50,
-      marginTop: 30,
+      marginBottom: 40,
+      marginTop: 40,
+      color: "white",
+      backgroundColor: "white",
     },
   },
 
@@ -25,6 +27,9 @@ const styles = makeStyles({
     boxShadow: "0px 0px 5px whiteSmoke",
     color: "white",
     textEmphasisColor: "white",
+    textDecorationColor: "white",
+    textEmphasis: "white",
+    colorRendering: "white",
   },
 });
 

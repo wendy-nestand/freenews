@@ -16,6 +16,7 @@ export default makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     borderBottom: "10px solid #0d1117b3",
+    backgroundColor: "#0d1117b3",
   },
   activeCard: {
     borderBottom: "10px solid #0d1117b3",
@@ -27,21 +28,31 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
     margin: "20px",
+    color: "white",
   },
   title: {
     padding: "0 16px",
+    color: "#0b8bda",
   },
   cardActions: {
     padding: "0 16px 8px 16px",
     display: "flex",
     justifyContent: "space-between",
+    color: "white",
   },
   button: {
     width: "100px",
     height: "40px",
     border: "solid black 2px",
-    borderRadius: "15px",
+    borderRadius: "5px",
     backgroundColor: " #0d1117b3",
     boxShadow: "0px 0px 10px white",
+    color: "whiteSmoke",
+  },
+  cardContent: {
+    color: "white",
+  },
+  tsource: {
+    color: "#0b8bda",
   },
 });

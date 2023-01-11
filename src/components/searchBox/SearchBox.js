@@ -25,9 +25,12 @@ const SearchBox = ({ searchNews, handleChange, handleSubmit }) => {
       }}
     >
       <TextField
-        id="search"
-        label="Search"
+        id="outlined-helperText"
+        label="Search For Topics"
         type="search"
+        defaultValue="type here"
+        helperText="bitcoin, smartphones, messi"
+        variant="outlined"
         value={searchNews}
         onChange={handleChange}
         className={classes.input}
