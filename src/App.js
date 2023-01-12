@@ -2,6 +2,7 @@ import React, { useEffect, useState, Component } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "./components/newsCards/NewsCards";
 import SearchBox from "./components/searchBox/SearchBox";
+import wordsToNumbers from "words-to-numbers";
 import "./index.css";
 
 const alanApi_Key =
@@ -15,10 +16,25 @@ const App = () => {
   useEffect(() => {
     alanBtn({
       key: "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage",
-      onCommand: ({ command, articles }) => {
+      onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
           console.log(articles);
           setNewsArticles(articles);
+        } else if (command === "open") {
+          const parsedNumber =
+            number.length > 2
+              ? wordsToNumbers(number, { fuzzy: true })
+              : number;
+          const article = articles[parsedNumber - 1];
+
+          if (parsedNumber > articles.length) {
+            alanBtn().playText("Please try that again...");
+          } else if (article) {
+            window.open(article.url, "_blank");
+            alanBtn().playText("Opening...");
+          } else {
+            alanBtn().playText("Please try that again...");
+          }
         }
       },
     });
@@ -30,7 +46,6 @@ const App = () => {
     console.log(`Searching for ${searchNews}`);
     const datas = fetchNews(searchNews);
     console.log("type:", typeof Object.values(datas));
-    // this.setState({ articles: datas });
   };
 
   const handleChange = (event) => {
@@ -56,12 +71,15 @@ const App = () => {
       <section>
         <div className="container">
           <h1>
-            Search <span className="sp">News</span>
+            Search For <span className="sp">News</span>
             <br />
             All around the Globe
+            <br />
+            And beyond using <span className="sp">AI</span>
           </h1>
         </div>
       </section>
+      <section></section>
       <NewsCards articles={newsArticles}></NewsCards>
     </div>
   );

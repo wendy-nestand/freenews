@@ -10,7 +10,7 @@ const SearchBox = ({ searchNews, handleChange, handleSubmit }) => {
 
   return (
     <form
-      // className={classes.root}
+      className={classes.root}
       id="outlined-basic"
       label="Outlined"
       variant="outlined"

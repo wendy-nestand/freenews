@@ -15,7 +15,7 @@ const infoCards = [
     color: "#0d1117b3",
     title: "News by Terms",
     info: "Bitcoin, PlayStation 5, Smartphones, Donald Trump...",
-    text: "What's up with PlayStation 5",
+    text: "display everything on PlayStation 5",
   },
   {
     color: "#0d1117b3",
@@ -61,7 +61,8 @@ const NewsCards = ({ articles }) => {
                   </Typography>
                 ) : null}
                 <Typography>
-                  Try searching for <br /> <i>{infoCard.text}</i>
+                  Open the mic in the right and say <br />{" "}
+                  <i>{infoCard.text}</i>
                 </Typography>
               </div>
             </Grid>
