@@ -1,0 +1,10 @@
+#card {
+  /* set initial state of the card */
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+#card:hover {
+  /* set the hover state of the card */
+  transform: scale(1.1);
+}

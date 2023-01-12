@@ -10,6 +10,7 @@ import {
   Grow,
 } from "@material-ui/core";
 import useStyles from "./styles";
+import "./styles";
 
 const NewsCard = ({
   i,
@@ -23,7 +24,7 @@ const NewsCard = ({
   const classes = useStyles();
   return (
     <Grow in>
-      <Card className={classes.card}>
+      <Card id="card" className={classes.card}>
         <CardActionArea href={url} target="_blank">
           <CardMedia
             className={classes.media}

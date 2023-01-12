@@ -5,6 +5,15 @@ export default makeStyles({
     height: 250,
   },
 
+  hover: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    borderBottom: "10px solid #0d1117b3",
+    backgroundColor: "#0d1117b3",
+    boxShadow: "0px 0px 10px #0b8bda",
+  },
+
   border: {
     border: "solid",
   },
