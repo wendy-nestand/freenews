@@ -20,7 +20,7 @@ const SearchBox = ({ searchNews, handleChange, handleSubmit }) => {
         justifyContent: "center",
         alignItems: "center",
         color: "whitesmoke",
-        marginBottom: 50,
+        marginBottom: 10,
         textEmphasisColor: "white",
       }}
     >

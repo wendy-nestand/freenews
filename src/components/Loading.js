@@ -1,13 +1,10 @@
-import * as React from "react";
-import Stack from "@mui/material/Stack";
-import CircularProgress from "@mui/material/CircularProgress";
+// import React from "react";
+// import { Puff } from "react-loader-spinner";
 
-export default function Loading() {
-  return (
-    <Stack sx={{ color: "grey.500" }} spacing={2} direction="row">
-      <CircularProgress color="secondary" />
-      <CircularProgress color="success" />
-      <CircularProgress color="inherit" />
-    </Stack>
-  );
-}
+// export const Loading = () => {
+//   return (
+//     <div className="flex justify-center items-center">
+//       <Puff color="#00BFFF" height={550} width={80} />
+//     </div>
+//   );
+// };

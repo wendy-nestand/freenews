@@ -2,6 +2,8 @@ import React from "react";
 import NewsCard from "../newsCard/NewsCard";
 import { Grid, Grow, Typography } from "@material-ui/core";
 import useStyles from "./styles.js";
+import Loading from "../Loading";
+import Loader from "../Loader";
 
 const infoCards = [
   { color: "#0d1117b3", title: "Latest News", text: "Give me the latest news" },
@@ -25,7 +27,7 @@ const infoCards = [
   },
 ];
 
-const NewsCards = ({ articles }) => {
+const NewsCards = ({ articles, isLoading }) => {
   const classes = useStyles();
 
   if (articles.length === 0) {
@@ -70,8 +72,9 @@ const NewsCards = ({ articles }) => {
         </Grid>
       </Grow>
     );
+  } else if (isLoading) {
+    return <Loader />;
   } else {
-    console.log("It worked");
     const cardComponent = articles.map((article, i) => {
       return (
         <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: "flex" }}>

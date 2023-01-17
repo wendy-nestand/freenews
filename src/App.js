@@ -4,6 +4,7 @@ import NewsCards from "./components/newsCards/NewsCards";
 import SearchBox from "./components/searchBox/SearchBox";
 import wordsToNumbers from "words-to-numbers";
 import "./index.css";
+import Scroll from "./components/Scroll";
 
 const alanApi_Key =
   "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage";
@@ -13,6 +14,8 @@ const newsApi_key = "2bb55c3d7c5c4ad2b9a2e78c86b89ed6";
 const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
   const [searchNews, setSearchNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     alanBtn({
       key: "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage",
@@ -53,12 +56,14 @@ const App = () => {
   };
 
   const fetchNews = async (searchKey) => {
+    setIsLoading(true);
     const response = await fetch(
       `https://newsapi.org/v2/everything?q=${searchKey}&apiKey=2bb55c3d7c5c4ad2b9a2e78c86b89ed6`
     );
     const data = await response.json();
-    console.log(data.articles);
+
     setNewsArticles(data.articles);
+    setIsLoading(false);
   };
 
   return (
@@ -68,19 +73,21 @@ const App = () => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       ></SearchBox>
-      <section>
-        <div className="container">
-          <h1>
-            Search For <span className="sp">News</span>
-            <br />
-            All around the Globe
-            <br />
-            And beyond using <span className="sp">AI</span>
-          </h1>
-        </div>
-      </section>
-      <section></section>
-      <NewsCards articles={newsArticles}></NewsCards>
+      <Scroll>
+        <section>
+          <div className="container">
+            <h1>
+              Search For <span className="sp">News</span>
+              <br />
+              All around the Globe
+              <br />
+              And beyond using <span className="sp">AI</span>
+            </h1>
+          </div>
+        </section>
+        <section></section>
+        <NewsCards isLoading={isLoading} articles={newsArticles}></NewsCards>
+      </Scroll>
     </div>
   );
 };
