@@ -2,7 +2,6 @@ import React from "react";
 import NewsCard from "../newsCard/NewsCard";
 import { Grid, Grow, Typography } from "@material-ui/core";
 import useStyles from "./styles.js";
-import Loading from "../Loading";
 import Loader from "../Loader";
 
 const infoCards = [
@@ -17,7 +16,7 @@ const infoCards = [
     color: "#0d1117b3",
     title: "News by Terms",
     info: "Bitcoin, PlayStation 5, Smartphones, Donald Trump...",
-    text: "display everything on PlayStation 5",
+    text: "display everything on fortnite",
   },
   {
     color: "#0d1117b3",
@@ -27,11 +26,10 @@ const infoCards = [
   },
 ];
 
-const NewsCards = ({ articles, isLoading }) => {
+const NewsCards = ({ articles, isLoading, activeArticle }) => {
   const classes = useStyles();
 
   if (articles.length === 0) {
-    console.log("len 0");
     return (
       <Grow in>
         <Grid
@@ -88,6 +86,7 @@ const NewsCards = ({ articles, isLoading }) => {
             urlToImage={article.urlToImage}
             publishedAt={article.publishedAt}
             content={article.content}
+            activeArticle={activeArticle}
           ></NewsCard>
         </Grid>
       );
@@ -110,27 +109,4 @@ const NewsCards = ({ articles, isLoading }) => {
 
 export default NewsCards;
 {
-  /* <Grow in>
-        <Grid
-          className={classes.container}
-          container
-          alignItems="stretch"
-          spacing={3}
-        >
-          {articles.map((article, i) => {
-            <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: "flex" }}>
-              <NewsCard
-                key={i}
-                source={article.source.name}
-                title={article.title}
-                description={article.description}
-                url={article.url}
-                urlToImage={article.urlToImage}
-                publishedAt={article.publishedAt}
-                content={article.content}
-              ></NewsCard>
-            </Grid>;
-          })}
-        </Grid>
-      </Grow> */
 }

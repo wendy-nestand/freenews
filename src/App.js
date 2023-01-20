@@ -8,21 +8,25 @@ import Scroll from "./components/Scroll";
 
 const alanApi_Key =
   "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage";
+
 const newsApi_key = "2bb55c3d7c5c4ad2b9a2e78c86b89ed6";
-//const API_URL = `https://newsapi.org/v2/everything?q=${searchNews}&apiKey=2bb55c3d7c5c4ad2b9a2e78c86b89ed6`;
 
 const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
   const [searchNews, setSearchNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [activeArticle, setActiveArticle] = useState(0);
 
   useEffect(() => {
     alanBtn({
-      key: "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      key: alanApi_Key,
       onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
           console.log(articles);
           setNewsArticles(articles);
+          setActiveArticle(-1);
+        } else if (command === "highlight") {
+          setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
         } else if (command === "open") {
           const parsedNumber =
             number.length > 2
@@ -58,7 +62,7 @@ const App = () => {
   const fetchNews = async (searchKey) => {
     setIsLoading(true);
     const response = await fetch(
-      `https://newsapi.org/v2/everything?q=${searchKey}&apiKey=2bb55c3d7c5c4ad2b9a2e78c86b89ed6`
+      `https://newsapi.org/v2/everything?q=${searchKey}&apiKey=${newsApi_key}`
     );
     const data = await response.json();
 
@@ -86,7 +90,11 @@ const App = () => {
           </div>
         </section>
         <section></section>
-        <NewsCards isLoading={isLoading} articles={newsArticles}></NewsCards>
+        <NewsCards
+          isLoading={isLoading}
+          articles={newsArticles}
+          activeArticle={activeArticle}
+        ></NewsCards>
       </Scroll>
     </div>
   );
