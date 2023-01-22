@@ -1,17 +1,9 @@
+import { Grow } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles({
   media: {
     height: 250,
-  },
-
-  hover: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    borderBottom: "10px solid #0d1117b3",
-    backgroundColor: "#0d1117b3",
-    boxShadow: "0px 0px 10px #0b8bda",
   },
 
   border: {
@@ -26,6 +18,16 @@ export default makeStyles({
     justifyContent: "space-between",
     borderBottom: "10px solid #0d1117b3",
     backgroundColor: "#0d1117b3",
+    "&:hover": {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      borderBottom: "10px solid #0d1117b3",
+      backgroundColor: "#0d1117b3",
+      boxShadow: "0px 0px 20px #0b8bda",
+      transform: Grow,
+      transition: "transform 0.3s ease-in-out",
+    },
   },
   activeCard: {
     borderBottom: "10px solid #0b8bda",
@@ -36,12 +38,13 @@ export default makeStyles({
   details: {
     display: "flex",
     justifyContent: "space-between",
-    margin: "20px",
+    margin: "10px",
     color: "white",
   },
   title: {
-    padding: "0 16px",
+    padding: "0 13px",
     color: "#0b8bda",
+    "&:hover": {},
   },
   cardActions: {
     padding: "0 16px 8px 16px",
@@ -57,6 +60,12 @@ export default makeStyles({
     backgroundColor: " #0d1117b3",
     boxShadow: "0px 0px 10px white",
     color: "whiteSmoke",
+    "&:hover": {
+      color: "#0b8bda",
+      boxShadow: "0px 0px 10px #0b8bda",
+      width: "120px",
+      height: "43px",
+    },
   },
   cardContent: {
     color: "white",
