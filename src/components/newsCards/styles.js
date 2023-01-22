@@ -21,7 +21,7 @@ const styles = makeStyles({
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
-      borderBottom: "10px solid #0d1117b3",
+      borderBottom: "10px solid #0b8bda",
       backgroundColor: "#0d1117b3",
       boxShadow: "0px 0px 20px #0b8bda",
       transition: "transform 0.3s ease-in-out",
