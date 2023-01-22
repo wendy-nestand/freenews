@@ -25,7 +25,6 @@ export default makeStyles({
       borderBottom: "10px solid #0d1117b3",
       backgroundColor: "#0d1117b3",
       boxShadow: "0px 0px 20px #0b8bda",
-      transform: Grow,
       transition: "transform 0.3s ease-in-out",
     },
   },

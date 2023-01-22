@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     alanBtn({
-      key: alanApi_Key,
+      key: "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage",
       onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
           console.log(articles);
