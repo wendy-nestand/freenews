@@ -36,6 +36,13 @@ const styles = makeStyles({
       Text: "#0b8bda",
     },
   },
+  title: {
+    color: "white",
+    "&:hover": {
+      color: "#0b8bda",
+      Text: "#0b8bda",
+    },
+  },
 });
 
 export default styles;

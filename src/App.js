@@ -4,12 +4,7 @@ import NewsCards from "./components/newsCards/NewsCards";
 import SearchBox from "./components/searchBox/SearchBox";
 import wordsToNumbers from "words-to-numbers";
 import "./index.css";
-import Scroll from "./components/Scroll";
-
-const alanApi_Key =
-  "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage";
-
-const newsApi_key = "2bb55c3d7c5c4ad2b9a2e78c86b89ed6";
+import Typed from "typed.js";
 
 const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
@@ -47,6 +42,24 @@ const App = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const typed = new Typed("#typed-text", {
+      strings: [
+        '<span style="color: #0b8bda; font-size: 60px; font-family: bold;">Hello World</span>',
+        "La maison est belle",
+        'Search For News Across The Web Using <span style="color: #0b8bda;"> AI </span>🤖',
+      ],
+
+      typeSpeed: 100,
+      startDelay: 100,
+      backSpeed: 100,
+      backDelay: 10,
+    });
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // perform search here
@@ -62,7 +75,7 @@ const App = () => {
   const fetchNews = async (searchKey) => {
     setIsLoading(true);
     const response = await fetch(
-      `https://newsapi.org/v2/everything?q=${searchKey}&apiKey=${newsApi_key}`
+      `https://newsapi.org/v2/everything?q=${searchKey}&apiKey="2bb55c3d7c5c4ad2b9a2e78c86b89ed6"`
     );
     const data = await response.json();
 
@@ -77,25 +90,23 @@ const App = () => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       ></SearchBox>
-      <Scroll>
-        <section>
-          <div className="container">
-            <h1>
-              Search For <span className="sp">News</span>
-              <br />
-              All around the Globe
-              <br />
-              And beyond using <span className="sp">AI</span>
-            </h1>
-          </div>
-        </section>
-        <section></section>
-        <NewsCards
-          isLoading={isLoading}
-          articles={newsArticles}
-          activeArticle={activeArticle}
-        ></NewsCards>
-      </Scroll>
+      <section>
+        <div className="container">
+          <h1 id="typed-text">
+            Search For <span className="sp">News</span>
+            <br />
+            All around the Globe
+            <br />
+            And beyond using <span className="sp">AI</span>
+          </h1>
+        </div>
+      </section>
+      <section></section>
+      <NewsCards
+        isLoading={isLoading}
+        articles={newsArticles}
+        activeArticle={activeArticle}
+      ></NewsCards>
     </div>
   );
 };
