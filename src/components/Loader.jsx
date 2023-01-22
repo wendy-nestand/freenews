@@ -18,7 +18,7 @@ const Loader = () => (
           cx="12"
           cy="12"
           r="10"
-          stroke="currentColor"
+          stroke="blue"
           strokeWidth="4"
         />
         <path

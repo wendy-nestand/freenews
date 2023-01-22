@@ -47,7 +47,7 @@ const App = () => {
       strings: [
         '<span style="color: #0b8bda; font-size: 60px; font-family: bold;">Hello World</span>',
         "La maison est belle",
-        'Search For News Across The Web Using <span style="color: #0b8bda;"> AI </span>🤖',
+        'Search For News<br/> Across The Web Using <span style="color: #0b8bda;"> AI </span>🤖',
       ],
 
       typeSpeed: 100,
@@ -75,7 +75,7 @@ const App = () => {
   const fetchNews = async (searchKey) => {
     setIsLoading(true);
     const response = await fetch(
-      `https://newsapi.org/v2/everything?q=${searchKey}&apiKey="2bb55c3d7c5c4ad2b9a2e78c86b89ed6"`
+      `https://newsapi.org/v2/everything?q=${searchKey}&apiKey=2bb55c3d7c5c4ad2b9a2e78c86b89ed6`
     );
     const data = await response.json();
 
