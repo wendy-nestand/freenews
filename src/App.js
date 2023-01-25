@@ -5,20 +5,36 @@ import SearchBox from "./components/searchBox/SearchBox";
 import wordsToNumbers from "words-to-numbers";
 import "./index.css";
 import Typed from "typed.js";
+import { Loading } from "./components/Loading";
+import Header from "./components/header/Header";
+import Layout from "./components/Layout";
 
 const App = () => {
   const [newsArticles, setNewsArticles] = useState([]);
   const [searchNews, setSearchNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [activeArticle, setActiveArticle] = useState(0);
+  const [greetingWasSaid, setgreetingWasSaid] = useState(false);
 
   useEffect(() => {
     alanBtn({
       key: "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onButtonState: async function (status) {
+        if (status === "ONLINE") {
+          if (!greetingWasSaid) {
+            await alanBtn().activate();
+            alanBtn().playText("Hello! I'm Alan. How can I help you?");
+            setgreetingWasSaid(true);
+          }
+        }
+      },
+
       onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
+          setIsLoading(true);
           console.log(articles);
           setNewsArticles(articles);
+          setIsLoading(false);
           setActiveArticle(-1);
         } else if (command === "highlight") {
           setActiveArticle((prevActiveArticle) => prevActiveArticle + 1);
@@ -62,9 +78,11 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // perform search here
-    console.log(`Searching for ${searchNews}`);
-    const datas = fetchNews(searchNews);
-    console.log("type:", typeof Object.values(datas));
+    if (searchNews) {
+      fetchNews(searchNews);
+    } else {
+      alert("Searchbox can't be empty");
+    }
   };
 
   const handleChange = (event) => {
@@ -82,13 +100,14 @@ const App = () => {
     setIsLoading(false);
   };
 
+  if (isLoading) return <Loading />;
+
   return (
-    <div>
-      <SearchBox
-        searchNews={searchNews}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      ></SearchBox>
+    <Layout
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      searchNews={searchNews}
+    >
       <section>
         <div className="container">
           <h1 id="typed-text">
@@ -106,7 +125,7 @@ const App = () => {
         articles={newsArticles}
         activeArticle={activeArticle}
       ></NewsCards>
-    </div>
+    </Layout>
   );
 };
 

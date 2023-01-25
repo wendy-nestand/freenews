@@ -3,6 +3,7 @@ import NewsCard from "../newsCard/NewsCard";
 import { Grid, Grow, Typography } from "@material-ui/core";
 import useStyles from "./styles.js";
 import Loader from "../Loader";
+import { Loading } from "../Loading";
 
 const infoCards = [
   { color: "#0d1117b3", title: "Latest News", text: "Give me the latest news" },
@@ -72,8 +73,8 @@ const NewsCards = ({ articles, isLoading, activeArticle }) => {
         </Grid>
       </Grow>
     );
-  } else if (isLoading) {
-    return <Loader />;
+  } else if (isLoading === true) {
+    return <Loading />;
   } else {
     const cardComponent = articles.map((article, i) => {
       return (
