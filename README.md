@@ -1,3 +1,42 @@
+# FreeNews
+
+FreeNews is an app that allows users to browse news from the [News API](https://newsapi.org/#).
+
+📝
+
+## FreeNews Features
+
+### User Stories
+
+#### Main Features
+
+- [x] User can view a list of articles in news headlines (title, poster image, and overview) from news sources and blogs across the web with the NEWS API.
+- [x] User can Open an article in the feed to read the complete news on the specific news web page.
+
+#### Secondary Features
+
+- [x] Views should be responsive for both lg/md/sm devices.
+- [x] Display a nice default [Loader Graphic] for each image during loading
+- [x] Improved the user interface by experimenting with styling and coloring.
+- [x] Users can Search By [Categories] [Terms] [Sources]
+- [x] Users can open articles to read directly from sources.
+
+#### AI Features
+
+- [x] Users can interact with AI to browse for news.
+- [x] Users can Search By [Terms] [Sources]
+- [x] Users can interact with AI to listen to the headlines.
+- [x] Users can interact with AI to open a specific article ['open article number 4'].
+- [x] Users can interact with AI to go back to the homepage. ['Go Back']
+
+#### Copyright
+
+- [Wendy J. G. Nestand -Uespoir]
+
+### App Walkthough GIF
+
+<img src="YOUR_GIF_URL_HERE" width=250><br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

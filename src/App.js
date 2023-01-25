@@ -49,7 +49,6 @@ const App = () => {
         "La maison est belle",
         'Search For News<br/> Across The Web Using <span style="color: #0b8bda;"> AI </span>🤖',
       ],
-
       typeSpeed: 100,
       startDelay: 100,
       backSpeed: 100,
