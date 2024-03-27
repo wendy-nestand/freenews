@@ -19,16 +19,6 @@ const App = () => {
   useEffect(() => {
     alanBtn({
       key: "7b6e8151913ff48bbbe9ffa6e573159f2e956eca572e1d8b807a3e2338fdd0dc/stage",
-      onButtonState: async function (status) {
-        if (status === "ONLINE") {
-          if (!greetingWasSaid) {
-            await alanBtn().activate();
-            alanBtn().playText("Hello! I'm Alan. How can I help you?");
-            setgreetingWasSaid(true);
-          }
-        }
-      },
-
       onCommand: ({ command, articles, number }) => {
         if (command === "newHeadlines") {
           setIsLoading(true);
@@ -61,8 +51,8 @@ const App = () => {
   useEffect(() => {
     const typed = new Typed("#typed-text", {
       strings: [
-        '<span style="color: #0b8bda; font-size: 60px; font-family: bold;">Hello World</span>',
-        "La maison est belle",
+        '<span style="color: #0b8bda; font-size: 60px; font-family: bold;">Hi,</span>',
+        '<span style="color: #0b8bda;"> Welcome to the News <br/> Web App </span>',
         'Search For News<br/> Across The Web Using <span style="color: #0b8bda;"> AI </span>🤖',
       ],
       typeSpeed: 100,
@@ -115,7 +105,7 @@ const App = () => {
             <br />
             All around the Globe
             <br />
-            And beyond using <span className="sp">AI</span>
+            using <span className="sp">AI</span>
           </h1>
         </div>
       </section>
