@@ -85,6 +85,7 @@ const NewsCard = ({
             color="white"
             size="small"
             href={url}
+            target="_blank"
           >
             <h4>read</h4>
           </Button>

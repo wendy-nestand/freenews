@@ -43,7 +43,8 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: left;
-  align-items: flex-end;
+  align-items: flex-center;
   text-align: left;
   margin-left: 6rem;
+  position: relative;
 }
