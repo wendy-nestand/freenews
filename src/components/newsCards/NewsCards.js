@@ -2,7 +2,6 @@ import React from "react";
 import NewsCard from "../newsCard/NewsCard";
 import { Grid, Grow, Typography } from "@material-ui/core";
 import useStyles from "./styles.js";
-import Loader from "../Loader";
 import { Loading } from "../Loading";
 
 const infoCards = [
@@ -111,5 +110,3 @@ const NewsCards = ({ articles, isLoading, activeArticle }) => {
 };
 
 export default NewsCards;
-{
-}
