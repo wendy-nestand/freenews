@@ -4,7 +4,6 @@ import NewsCards from "./components/newsCards/NewsCards";
 import wordsToNumbers from "words-to-numbers";
 import "./index.css";
 import Typed from "typed.js";
-import { Loading } from "./components/Loading";
 import Layout from "./components/Layout";
 
 const App = () => {
@@ -87,7 +86,7 @@ const App = () => {
     setIsLoading(false);
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <h1>LOADING...</h1>;
 
   return (
     <Layout
