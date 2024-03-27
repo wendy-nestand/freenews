@@ -1,12 +1,10 @@
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import NewsCards from "./components/newsCards/NewsCards";
-import SearchBox from "./components/searchBox/SearchBox";
 import wordsToNumbers from "words-to-numbers";
 import "./index.css";
 import Typed from "typed.js";
 import { Loading } from "./components/Loading";
-import Header from "./components/header/Header";
 import Layout from "./components/Layout";
 
 const App = () => {
@@ -14,7 +12,6 @@ const App = () => {
   const [searchNews, setSearchNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [activeArticle, setActiveArticle] = useState(0);
-  const [greetingWasSaid, setgreetingWasSaid] = useState(false);
 
   useEffect(() => {
     alanBtn({
